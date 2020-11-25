@@ -1,0 +1,86 @@
+
+<nav class="barra_navegacion activa" id="barra_navegacion_btn">
+  <div class="cont_btn_hamburger" >
+    <div class="separator"></div>
+    <a id="btn_hamburger" (click)="navbarActive = !navbarActive"><i class="fa fa-bars"></i></a>
+  </div>
+</nav>
+
+
+
+<nav class="barra_navegacion" id="barra_navegacion" [ngClass]="{'hidden':!navbarActive}">
+  <a routerLink="/">Home</a>
+
+  <div class="desplegable" (click)="toggleDropdown($event, true)">
+    <span>Cooperativa</span>
+    <div class="desplegable__lista">
+      <a class="dropdown-item" routerLink="cooperativa">Cooperativa</a>
+      <a class="dropdown-item" routerLink="cooperativa/vision">Mision-Vision</a>
+      <a class="dropdown-item" routerLink="cooperativa/galeria">Galeria de imagenes</a>
+     </div>
+  </div>
+
+  <div class="desplegable" (click)="toggleDropdown($event, true)">
+    <span>Productos</span>
+    <div class="desplegable__lista">
+      <a class="dropdown-item" routerLink="productos">Lista de Productos</a>
+
+      <div class="desplegable" (click)="toggleDropdown($event)" *ngIf="hasItemsClass('ave')">
+        <span>Aves</span>
+        <div class="desplegable__lista">
+          <a *ngFor="let p of productos | claseProducto: 'ave'" [routerLink]="['/productos/ave',p.nombre]">{{ p.nombre }}</a>
+         </div>
+      </div>
+
+      <div class="desplegable" (click)="toggleDropdown($event)" *ngIf="hasItemsClass('bovino')">
+        <span>Bovinos</span>
+        <div class="desplegable__lista">
+          <a *ngFor="let p of productos | claseProducto: 'bovino'" [routerLink]="['/productos/bovino',p.nombre]">{{ p.nombre }}</a>
+         </div>
+      </div>
+
+      <div class="desplegable" (click)="toggleDropdown($event)" *ngIf="hasItemsClass('conejo')">
+        <span>Conejos</span>
+        <div class="desplegable__lista">
+          <a *ngFor="let p of productos | claseProducto: 'conejo'" [routerLink]="['/productos/conejo',p.nombre]">{{ p.nombre }}</a>
+         </div>
+      </div>
+
+      <div class="desplegable" (click)="toggleDropdown($event)" *ngIf="hasItemsClass('equino')">
+        <span>Equinos</span>
+        <div class="desplegable__lista">
+          <a *ngFor="let p of productos | claseProducto: 'equino'" [routerLink]="['/productos/equino',p.nombre]">{{ p.nombre }}</a>
+         </div>
+      </div>
+
+      <div class="desplegable" (click)="toggleDropdown($event)" *ngIf="hasItemsClass('ovino')">
+        <span>Ovinos</span>
+        <div class="desplegable__lista">
+          <a *ngFor="let p of productos | claseProducto: 'ovino'" [routerLink]="['/productos/ovino',p.nombre]">{{ p.nombre }}</a>
+         </div>
+      </div>
+
+      <div class="desplegable" (click)="toggleDropdown($event)" *ngIf="hasItemsClass('porcino')">
+        <span>Porcinos</span>
+        <div class="desplegable__lista">
+          <a *ngFor="let p of productos | claseProducto: 'porcino'" [routerLink]="['/productos/porcino',p.nombre]">{{ p.nombre }}</a>
+         </div>
+      </div>
+
+    </div>
+  </div>
+
+  <a routerLink="/contacto">Contacto</a>
+
+  <div class="separator"></div>
+
+  <div class="desplegable" (click)="toggleDropdown($event, true)" *ngIf="_auth.isAdmin | async">
+    <span style="min-width: 200px;">Admin</span>
+    <div class="desplegable__lista">
+      <a class="dropdown-item" routerLink="admin/clase">Clases</a>
+      <a class="dropdown-item" routerLink="admin/producto">Productos</a>
+     </div>
+  </div>
+
+
+</nav>

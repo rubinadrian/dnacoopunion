@@ -1,0 +1,114 @@
+<nav class="navbar navbar-expand-sm navbar-light" id="navbar">
+  <div class="container">
+      <button class="navbar-toggler" type="button" (click)="toggleNavBar()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse" name="eNavBar" #eNavBar>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': activeMenu===''}" (click)="activeMenu=''"
+                routerLink="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" [ngClass]="{'active': activeMenu==='cooperativa'}">Cooperativa</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" (click)="activeMenu='cooperativa'">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" routerLink="cooperativa">Cooperativa</a>
+                </li>
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" routerLink="cooperativa/vision">Mision-Vision</a>
+                </li>
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" routerLink="cooperativa/galeria">Galeria</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" >
+              <a class="nav-link dropdown-toggle" [ngClass]="{'active': activeMenu==='productos'}">
+                Productos
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" (click)="activeMenu='productos'">
+                  <li class="dropdown-submenu">
+                      <a class="dropdown-item" routerLink="productos">Lista de Productos</a>
+                    </li>
+                <li class="dropdown-submenu" *ngIf="hasItemsClass('bovino')">
+                  <a class="dropdown-item dropdown-toggle" routerLink="/productos/bovino">Bovinos</a>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let p of productos | claseProducto: 'bovino'">
+                      <a class="dropdown-item"  [routerLink]="['/productos/bovino',p.nombre]">{{ p.nombre }}</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu" *ngIf="hasItemsClass('porcino')">
+                  <a class="dropdown-item dropdown-toggle" routerLink="/productos/porcino">Porcinos</a>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let p of productos | claseProducto: 'porcino'">
+                      <a class="dropdown-item" [routerLink]="['/productos/porcino',p.nombre]">{{ p.nombre }}</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu" *ngIf="hasItemsClass('ave')">
+                  <a class="dropdown-item dropdown-toggle" routerLink="/productos/ave">Aves</a>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let p of productos | claseProducto: 'ave'">
+                      <a class="dropdown-item" [routerLink]="['/productos/ave',p.nombre]">{{ p.nombre }}</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu" *ngIf="hasItemsClass('equino')">
+                  <a class="dropdown-item dropdown-toggle" routerLink="/productos/equino">Equinos</a>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let p of productos | claseProducto: 'equino'">
+                      <a class="dropdown-item" [routerLink]="['/productos/equino',p.nombre]">{{ p.nombre }}</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu" *ngIf="hasItemsClass('ovino')">
+                  <a class="dropdown-item dropdown-toggle" routerLink="/productos/ovino">Ovinos</a>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let p of productos | claseProducto: 'ovino'">
+                      <a class="dropdown-item" [routerLink]="['/productos/ovino',p.nombre]">{{ p.nombre }}</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown-submenu" *ngIf="hasItemsClass('conejo')">
+                  <a class="dropdown-item dropdown-toggle" routerLink="/productos/conejo">Conejos</a>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let p of productos | claseProducto: 'conejo'">
+                      <a class="dropdown-item" [routerLink]="['/productos/conejo',p.nombre]">{{ p.nombre }}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': activeMenu==='contacto'}" (click)="activeMenu='contacto'"
+                routerLink="/contacto">Contacto</a>
+            </li>
+            <li class="nav-item dropdown" (click)="activeMenu='admin'" *ngIf="isAuth()">
+              <a class="nav-link dropdown-toggle" [ngClass]="{'active': activeMenu==='admin'}"
+                routerLink="/cooperativa">Admin</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" routerLink="admin/clase">Clases</a>
+                </li>
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" routerLink="admin/producto">Productos</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form action="#">
+              <i class="fa fa-2x fa-globe" aria-hidden="true" title="Traducir" (click)="traduccion=true" *ngIf="!traduccion"></i>
+              <div id="google_translate_element" [hidden]='!traduccion'></div>
+          </form>
+        </div>
+  </div>
+
+</nav>

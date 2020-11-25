@@ -1,0 +1,49 @@
+
+
+
+.carousel {
+    height: 150px;
+    overflow: hidden;
+}
+
+.pTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #323232;
+}
+
+.pSubTitle {
+    font-size: 18px;
+}
+
+.pDeno {
+    font-size: 16px;
+    color: #666;
+    text-align: justify;
+}
+
+.pContacto {
+    font-size: 16px;
+    margin: 0px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+  border: 1px solid #ccc;
+}
+
+.map-responsive iframe{
+  left:0;
+  top:0;
+  height:500px;
+  width:100%;
+  position:absolute;
+}
+

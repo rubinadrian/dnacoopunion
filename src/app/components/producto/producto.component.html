@@ -1,0 +1,37 @@
+<div class="row product">
+
+  <div class="col-md-3" style="text-align: center">
+    <img class="block" *ngIf="producto.imagen" [src]="urlImages + producto.imagen" height="200">
+  </div>
+
+  <div class="col-md-9">
+
+    <h4 class="titulo_producto">{{ producto.nombre }}</h4>
+    
+    <h5>Categoría</h5>
+    <div style="white-space: pre-line;" *ngIf="producto.categoria">
+        {{ producto.categoria }}
+    </div>
+
+    <h5>Envasado</h5>
+    <div style="white-space: pre-line;" *ngIf="producto.envasado">
+      {{ producto.envasado }}
+    </div>
+
+    <h5>Forma de uso</h5>
+    <div style="white-space: pre-line;" *ngIf="producto.formadeuso">
+      {{ producto.formadeuso }}
+    </div>
+    
+
+    <div class="clearfix mt-3">
+      <div class="btn-senasa float-left pointer"  (click)="goFileSenasa(producto)">
+        <img src="assets/images/senasa.jpg" width="40">
+        <small>Prod. N {{ producto.senasa }}</small>
+      </div>
+      <div class="float-right" *ngIf="producto.file_espe">
+        <button class="btn btn-black font-montserrat all-caps fs-12" (click)="goFileEspe(producto)">Especificaciones</button>
+      </div>
+    </div>
+  </div>
+</div>

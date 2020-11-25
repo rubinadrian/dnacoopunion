@@ -1,0 +1,25 @@
+<div class="container" style="max-width: 600px">
+  <form class="mt-5" [formGroup]="f_login" (submit)="login()" *ngIf="!(_auth.isAdmin | async)">
+    <div class="row" >
+      <div class="col-sm-6">
+        <div class="form-group form-group-default" (click)="email.focus()">
+          <label>Mail</label>
+          <input type="text" class="form-control" formControlName="email" #email>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group form-group-default" (click)="pass.focus()">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password" #pass>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="float-right">
+      <button type="submit" class="btn btn-black font-montserrat all-caps fs-12">Ingresar</button>
+    </div>
+  </form>
+
+</div>

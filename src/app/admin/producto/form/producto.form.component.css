@@ -1,0 +1,13 @@
+input, select {
+    font-family: 'Montserrat';
+    color: #666;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: none;
+}
+
+label {
+  margin-bottom: 5px;
+}

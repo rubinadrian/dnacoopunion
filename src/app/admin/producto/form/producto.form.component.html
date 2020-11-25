@@ -1,0 +1,98 @@
+<div class="container" style="margin-bottom: 80px;">
+  <form class="mt-5" [formGroup]="f_producto" (submit)="saveProducto()">
+    <div class="row">
+
+      <div class="col-sm-6">
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default" (click)="name.focus()">
+            <label>Nombre</label>
+            <input class="form-control" formControlName="nombre" #name>
+          </div>
+        </div>
+
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default">
+            <label>Clase</label>
+            <select class="form-control" formControlName="clase_id">
+              <option *ngFor="let c of clases" value="{{c.id}}">{{c.clase}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default" (click)="imagen.focus()">
+            <img [src]="imageUrl" width="100" height="100" *ngIf="imageUrl">
+            <label>Imagen</label>
+            <input type="file" class="form-control" (change)="handleImageInput($event)" formControlName="imagen" #imagen
+              accept=".jpg,.jpeg,.png,.jfif">
+          </div>
+        </div>
+
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default" (click)="senasa.focus()">
+            <label>Senasa</label>
+            <input class="form-control" formControlName="senasa" #senasa>
+          </div>
+        </div>
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default" (click)="file_senasa.focus()">
+            <label>Senasa (pdf)</label>
+            <input type="file" class="form-control" formControlName="file_senasa" #file_senasa accept="application/pdf"
+              (change)="changeFileSenasa($event)">
+          </div>
+        </div>
+
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default" (click)="file_espe.focus()">
+            <label>Especificaciones (pdf)</label>
+            <input type="file" class="form-control" formControlName="file_espe" #file_espe accept="application/pdf"
+              (change)="changeFileEspecificaciones($event)">
+          </div>
+        </div>
+
+      </div> <!-- Cierre columna izq -->
+
+
+      <div class="col-sm-6">
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default" (click)="categoria.focus()">
+            <label>Categoria</label>
+            <textarea rows="3" class="form-control" formControlName="categoria" #categoria></textarea>
+          </div>
+        </div>
+
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default" (click)="envasado.focus()">
+            <label>Envasado</label>
+            <input rows="6" class="form-control" formControlName="envasado" #envasado>
+          </div>
+        </div>
+
+        <div class="col-sm-12 p-0">
+          <div class="form-group form-group-default" (click)="formadeuso.focus()">
+            <label>Forma de uso</label>
+            <textarea class="form-control" formControlName="formadeuso" #formadeuso></textarea>
+          </div>
+        </div>
+
+      </div> <!-- Cierre columna der -->
+
+
+    </div>  <!-- row -->
+
+    <div class="float-right">
+      <button type="submit" class="btn btn-black font-montserrat all-caps fs-12"
+        [disabled]="f_producto.invalid">Guardar</button>
+    </div>
+
+  </form>
+
+
+</div>  <!-- container -->

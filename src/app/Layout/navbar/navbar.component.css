@@ -1,0 +1,76 @@
+.container {
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.fa-globe {
+    color:rgba(0,0,0,.5);
+}
+
+.fa-globe:hover {
+    color: firebrick;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.navbar {
+    background-color: rgb(176, 170, 126);
+}
+
+.navbar-toggler {
+    border: 0px;
+    padding: 0px;
+}
+
+.navbar-toggler,
+.navbar-toggler:active,
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.nav-link {
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.nav-link:hover, .dropdown-item:hover, .dropdown-submenu .dropdown-item:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.nav-link.active, .dropdown-item.active {
+    color: firebrick  !important;
+}
+
+.navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+}
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+}
+
+/* rotate caret on hover */
+.dropdown-menu > li > a:hover:after {
+    text-decoration: underline;
+    transform: rotate(-90deg);
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover,
+.dropdown-item:active {
+    background-color: transparent;
+    color: initial;
+}
+
+.dropdown-menu {
+    margin: 0px;
+    border-radius: 0px;
+    border: none;
+    background-color: rgba(176, 170, 126,0.99);
+ }
+

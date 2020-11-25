@@ -1,0 +1,172 @@
+::ng-deep :root {
+  --color1: #fff;
+  --bgcolor1: #aa5522;
+  --bgcolor2: white;
+  --color-desplegable: #323232;
+  --bgcolor-hover:rgba(90, 90, 99, 0.1);
+  --color-hover:#fff;
+  --bgcolor-hover2:#f5f5f5;
+  --color-hover2: rgb(199, 100, 33);
+  --bgcolor-desplegablelvl2: rgba(218, 143, 73, 0.1);
+}
+
+* {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  /*
+    Introduced in IE 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 600px) {
+  .barra_navegacion {
+    flex-direction: column;
+  }
+
+  .cont_btn_hamburger {
+    display: flex !important;
+  }
+
+  #barra_navegacion.activa {
+    display: flex;
+  }
+
+  .desplegable__lista {
+    position: relative !important;
+    width: 101%;
+  }
+
+
+  .hidden {
+    visibility: hidden;
+    height: 0px;
+  }
+
+  .activa ~  .desplegable__lista
+  .activa ~  .desplegable__lista {
+    position: relative !important;
+  }
+}
+
+
+.cont_btn_hamburger {
+  text-align: right;
+  display: none;
+}
+
+#btn_hamburger {
+  font-size:15px;
+}
+
+
+.separator {
+  flex: 1 1 auto;
+}
+
+
+
+.barra_navegacion {
+  display: flex;
+  flex-basis: 0;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  background-color: var(--bgcolor1);
+}
+
+.barra_navegacion > * {
+  position: relative;
+  color: var(--color1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.desplegable {
+  position: relative;
+}
+
+.desplegable span:after {
+  content: ' ▾';
+}
+
+.barra_navegacion a,
+.barra_navegacion span,
+.desplegable span {
+  overflow: hidden;
+  padding: 10px 20px;
+  display: block;
+}
+
+.barra_navegacion a,
+.barra_navegacion .desplegable {
+  display: block;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.barra_navegacion > a:hover,
+.barra_navegacion > .desplegable >  span:hover {
+  background-color:  var(--bgcolor-hover);
+  color: var(--color-hover);
+}
+
+.barra_navegacion .desplegable a:hover,
+.barra_navegacion .desplegable .desplegable span:hover {
+  background-color:  var(--bgcolor-hover2);
+  color: var(--color-hover2);
+}
+
+.desplegable__lista {
+  position: absolute;
+  background: var(--bgcolor2);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  min-width: 100%;
+  line-height: 40px;
+  min-width: 300px;
+}
+
+.desplegable__lista a,
+.desplegable__lista span {
+  color: var(--color-desplegable);
+}
+
+.desplegable__lista a:hover,
+.desplegable__lista span:hover {
+  background-color: var(--bgcolor-hover);
+}
+
+.pantalla_fina .desplegable__lista {
+  width: 100%;
+  position: relative;
+  top: 10px;
+}
+
+.desplegable__lista {
+  display: none;
+}
+
+#barra_navegacion > .desplegable > .desplegable__lista {
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+}
+
+.activa ~  .desplegable__lista {
+  display: block;}
+
+.activa ~  .desplegable__lista
+.activa ~  .desplegable__lista {
+  position: relative;
+}
+
+.desplegable__lista .desplegable__lista {
+  background-color: var(--bgcolor-desplegablelvl2);
+}
+
+
+

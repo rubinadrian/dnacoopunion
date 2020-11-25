@@ -1,0 +1,49 @@
+
+
+
+<div class="cont_table">
+
+  <div style="display: flex; padding: 20px 0px;">
+    <div class="col-sm-6 p-0">
+      <input type="text" class="form-control" [(ngModel)]="search" [ngModelOptions]="{standalone: true}" placeholder="Buscar...">
+    </div>
+
+    <div class="col-sm-6 p-0 text-right">
+      <button type="button" class="btn btn-primary" (click)="addProducto()"><i class="fa fa-plus"></i> Nuevo</button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">Producto</th>
+        <th scope="col">Forma de Uso</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Envasado</th>
+        <th scope="col">Senasa</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos | ftrArrObj: search" (click)="editProducto(producto)">
+        <!-- <th>{{producto.id}}</th> -->
+        <td>
+          <div style="cont_name_image_prod">
+            <div class="cont_img_prod" [style.backgroundImage]="'url('+ urlImages + producto.imagen +')'"></div>
+            <span class="nombre">{{producto.nombre}}</span>
+          </div>
+        </td>
+        <td><div class="formadeuso">{{producto.formadeuso}}</div></td>
+        <td>{{producto.categoria}}</td>
+        <td>{{producto.envasado}}</td>
+        <td>{{producto.senasa}}</td>
+        <td>
+          <div class="cont_tools" (click)="delProducto(producto, $event)">
+            <i class="fa fa-times pull-right "></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+

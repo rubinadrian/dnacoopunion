@@ -1,0 +1,75 @@
+<div class="cont_imagen fadeIn" style="background-image: url(assets/images/productos.jpg)"></div>
+
+<div class="container">
+
+  <h3>Productos</h3>
+  <br>
+  <!-- Actual search box -->
+  <div class="form-group has-search">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control" [(ngModel)]="search" [ngModelOptions]="{standalone: true}" (change)="clase=''" placeholder="Search">
+  </div>
+  
+  <div class="card" *ngIf="(!clase || (clase && clase.toLowerCase() === 'bovino')) && (productos | claseProducto: 'bovino'  | ftrArrObj: search).length > 0">
+    <div class="card-header">
+      Bovinos
+      <img src="assets/images/bovino_gris.png ">
+    </div>
+    <div class="card-body">
+      <app-producto *ngFor="let p of productos | claseProducto: 'bovino'  | ftrArrObj: search" [producto]="p"></app-producto>
+    </div>
+  </div>
+  
+  <div class="card" *ngIf="(!clase || (clase && clase.toLowerCase() === 'porcino')) && (productos | claseProducto: 'porcino'  | ftrArrObj: search).length > 0">
+    <div class="card-header">
+       Porcinos
+      <img src="assets/images/porcino_gris.png">
+    </div>
+    <div class="card-body">
+      <app-producto *ngFor="let p of productos | claseProducto: 'porcino'  | ftrArrObj: search" [producto]="p"></app-producto>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="(!clase || (clase && clase.toLowerCase() === 'ave')) && (productos | claseProducto: 'ave'  | ftrArrObj: search).length > 0">
+    <div class="card-header">
+        Aves
+      <img src="assets/images/ave_gris.png">
+    </div>
+    <div class="card-body">
+      <app-producto *ngFor="let p of productos | claseProducto: 'ave'  | ftrArrObj: search" [producto]="p"></app-producto>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="(!clase || (clase && clase.toLowerCase() === 'equino')) && (productos | claseProducto: 'equino' | ftrArrObj: search).length > 0">
+    <div class="card-header">
+        Equinos
+      <img src="assets/images/equino_gris.png">
+    </div>
+    <div class="card-body">
+      <app-producto *ngFor="let p of productos | claseProducto: 'equino' | ftrArrObj: search" [producto]="p"></app-producto>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="(!clase || (clase && clase.toLowerCase() === 'conejo')) && (productos | claseProducto: 'conejo' | ftrArrObj: search).length > 0">
+    <div class="card-header">
+        Conejos
+      <img src="assets/images/conejo_gris.png">
+    </div>
+    <div class="card-body">
+      <app-producto *ngFor="let p of productos | claseProducto: 'conejo' | ftrArrObj: search" [producto]="p"></app-producto>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="(!clase || (clase && clase.toLowerCase() === 'ovino')) && (productos | claseProducto: 'ovino' | ftrArrObj: search).length > 0">
+    <div class="card-header">
+        Ovinos
+      <img src="assets/images/ovino_gris.png">
+    </div>
+    <div class="card-body">
+      <app-producto *ngFor="let p of productos | claseProducto: 'ovino' | ftrArrObj: search" [producto]="p"></app-producto>
+    </div>
+  </div>
+
+  <p *ngIf="!((productos | ftrArrObj: search).length > 0)">No se encontraron resultados para su busqueda</p>
+
+</div>

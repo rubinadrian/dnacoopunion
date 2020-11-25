@@ -1,0 +1,29 @@
+<div class="container" style="min-height: 500px;">
+
+    <div style="text-align: center;">
+      <img class="loader" src="assets/images/sy-loader.gif" alt="" *ngIf="loading">
+    </div>
+    <div class="col-md-8" *ngIf="!loading">
+
+            <h3>{{ noticia.news_title }}</h3>
+
+            <div>
+                <img style="max-width: 100%;" [src]="noticia.bg">
+            </div>
+
+
+            <div class="mt-5" *ngIf="noticia.news_body" [innerHtml]="noticia.news_body | sanitizeHtml"></div>
+
+            <small style="color: #999">publicado: {{ noticia.news_date }}</small><br>
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+</div>
+
+
+
+
+
+

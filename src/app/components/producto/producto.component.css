@@ -1,0 +1,27 @@
+.product {
+    border-bottom: 1px solid #ccc;
+    padding:20px;
+}
+
+.product h4, .product h5 {
+    font-family: 'Open Sans';
+    font-weight: 300;
+}
+
+.product h4 {
+    color:#35599f;
+}
+
+
+.product h5 {
+    color:#529e51;
+}
+
+a.btn {
+    color:white;
+}
+
+/* .titulo_producto {
+    white-space: nowrap;
+} */
+

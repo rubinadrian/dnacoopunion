@@ -1,0 +1,92 @@
+@media only screen and (max-width: 600px) {
+
+  tr th:nth-child(2),
+  tr td:nth-child(2),
+  tr th:nth-child(3),
+  tr td:nth-child(3) {
+    display: none;
+  }
+
+}
+
+
+.cont_table {
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+
+table {
+  font-size: 0.8em;
+  width: 100%;
+}
+
+table td {
+  padding: 20px 5px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+table tr:hover td {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+table th {
+  background-color: slategray;
+  padding: 20px 5px;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.cont_name_image_prod {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cont_img_prod {
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  padding: 0px;
+}
+
+td span.nombre {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  font-size: 0.8;
+  line-height: 0.8;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 20px 0px;
+}
+
+.cont_tools {
+  width: 40px;
+  text-align: center;
+  justify-content: center;
+}
+
+.cont_tools .fa {
+  font-size: 1.4em;
+}
+
+.cont_tools .fa-times {
+  color: #a02b37;
+}
+
+.cont_tools .fa-times:hover {
+  color: #dc3545;
+  font-size: 1.6em;
+}
+
+.formadeuso {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}

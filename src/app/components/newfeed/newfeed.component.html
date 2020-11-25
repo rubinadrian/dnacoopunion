@@ -1,0 +1,29 @@
+  <section style="background-color:#E0DDD5; text-align: center;">
+    <img class="loader" src="assets/images/sy-loader.gif" alt="" *ngIf="news.length == 0">
+    <section class="pb-5 pt-5 container" *ngIf="news">
+          <div class="gallery">
+            <a [routerLink]="[ '/noticia', item.news_id ]" *ngFor="let item of news">
+              <div class="gallery-item col-md-4 col-sm-6 col-xs-12 p-1 hover-zoom grid-sizer">
+                <div class="inner bottom-left bottom-right p-3">
+                  <h5 class=" text-white no-margin">{{ item.news_title }}</h5>
+                </div>
+                <div class="inner2 bottom-left bottom-right p-3">
+                  <div class="bg-gris p-1">
+                    <h5 class="block-title text-white m-0">{{ item.news_title }}</h5>
+                    <p class="font-arial fs-18 hint-text text-white mt-1 mb-0">{{ item.news_date }}</p>
+                    <p class="font-arial fs-14 text-white muted mt-1 mb-0">
+                      {{ item.news_fpara }}
+                    </p>
+                  </div>
+                </div>
+                <div class="ar-1-1">
+                  <div [attr.data-pages-bg-image]="item.bg" [attr.data-bg-overlay]="black"
+                  [attr.data-overlay-opacity]="0.2" [ngStyle]="{'background-image': 'url('+ item.bg +')'}" style="background-size: cover;">
+                    <div class="bg-overlay" style="background-color: black; opacity: 0.2;"></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+    </section>
+  </section>

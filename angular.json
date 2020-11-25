@@ -13,6 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "rxjs/internal/observable/fromEvent",
+              "bootstrap"
+            ],
             "outputPath": "dist/dnacoopunion",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -24,9 +28,21 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/font-awesome-4.7.0/css/font-awesome.css",
+              "src/assets/styles/animate.css",
+              "src/assets/slippry/slippry.css",
+              "src/styles.css",
+              "node_modules/sweetalert2/dist/sweetalert2.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.min.js",
+              "node_modules/wow.js/dist/wow.min.js",
+              "src/assets/slippry/slippry.min.js",
+              "node_modules/isotope-layout/dist/isotope.pkgd.min.js"
+            ]
           },
           "configurations": {
             "production": {

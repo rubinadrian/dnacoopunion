@@ -1,0 +1,63 @@
+<div class="cont_imagen fadeIn" style="background-image: url(assets/images/contacto.jpg)"></div>
+
+<div class="container">
+
+  <div class="row">
+      <div class="col-md-6">
+          <h1>Contacto</h1>
+          <small>Póngase en contacto con nosotros y nos comunicaremos a la brevedad.</small>
+        </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form class="m-t-15" [formGroup]="f_contacto" (submit)="sendMail()" novalidate="novalidate" autocomplete="off">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group form-group-default" (click)="name.focus()">
+              <label>Nombre *</label>
+              <input class="form-control" formControlName="nombre" #name>
+              <small class="text-error" *ngIf="f_contacto.controls.nombre.errors?.required  && f_contacto.controls.nombre.touched">Este campo es requerido.</small>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group form-group-default" (click)="phone.focus()">
+              <label>Telefono</label>
+              <input class="form-control" formControlName="telefono" #phone>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-group-default" (click)="email.focus()">
+          <label>Email *</label>
+          <input class="form-control" formControlName="email" #email>
+          <small class="text-error" *ngIf="f_contacto.controls.email.errors?.required  && f_contacto.controls.email.touched">Este campo es requerido.</small>
+          <small class="text-error" *ngIf="f_contacto.controls.email.errors?.pattern  && f_contacto.controls.email.touched">Mail no valido</small>
+        </div>
+        <div class="form-group form-group-default" (click)="message.focus()">
+          <label>Mensaje *</label>
+          <textarea class="form-control" formControlName="mensaje" style="height:100px" #message></textarea>
+          <small class="text-error" *ngIf="f_contacto.controls.mensaje.errors?.required && f_contacto.controls.mensaje.touched">Este campo es requerido.</small>
+        </div>
+        <div class="sm-p-t-10 clearfix">
+
+          <button class="btn btn-black font-montserrat all-caps fs-12 pull-right xs-pull-left" [disabled]="f_contacto.status !== 'VALID'">Enviar</button>
+        </div>
+        <div class="clearfix"></div>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <h5 class="font-montserrat">COOPERATIVA AGROPECUARIA UNION DE J.POSSE LTDA.</h5>
+      <address class="m-t-10">
+        Sobremonte y Tucumán<br>
+        San Marcos (2568)<br>
+        Córdoba<br>
+        Argentina<br>
+      </address>
+      <br>
+      <p class="hint-text no-margin"><span class="fs-14">Tel: +54 - (03537) 498159/187/485</span></p>
+      <a href="mailto:union@coopunion.com.ar">oramello@coopunion.com.ar </a>
+    </div>
+
+  </div>
+</div>

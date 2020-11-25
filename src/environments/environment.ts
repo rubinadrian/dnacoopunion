@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlPdfs: 'http://localhost/dnacoopunion/public/uploads/',
+  urlBackEnd: 'http://localhost/dnacoopunion/public/index.php/api/',
+  urlImages: 'http://localhost/dnacoopunion/public/storage/'
 };
 
 /*

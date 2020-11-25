@@ -1,0 +1,27 @@
+p {
+    padding: 20px;
+}
+
+a.btn {
+    margin: 10px;
+    font-weight: bold;
+}
+
+.btn-marron {
+    color: white; 
+    background-color:#6C5656
+}
+
+.btn-face {
+    color: white;
+    background-color: #4267b2;
+}
+
+.btn-whatsapp {
+    background-color: rgb(0,230,118);
+    color: white;
+}
+
+a.btn i.fa {
+    font-size:18px;
+}
